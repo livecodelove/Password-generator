@@ -1,13 +1,4 @@
-'''
-
-                            Online Python Compiler.
-                Code, Compile, Run and Debug python program online.
-Write your code in this editor and press "Run" button to execute it.
-
-'''
-
 from random import *
-
 
 def generate_password(chars, lenght):
     password = ''
@@ -27,7 +18,6 @@ chars = []
 count_passwords = int(input('Количество генерируемых паролей: '))
 lenght_password = int(input('Длина каждого пароля: '))
 
-
 numbers_bool = input('Включать ли цифры 0123456789? д - да, н - нет \n')
 lowercase_bool = input('Включать ли строчные буквы abcdefghijklmnopqrstuvwxyz? д - да, н - нет \n')
 uppercase_bool = input('Включать ли прописные буквы ABCDEFGHIJKLMNOPQRSTUVWXYZ? д - да, н - нет \n')
@@ -43,8 +33,7 @@ if uppercase_bool.lower() == 'д':
 if punctuation_bool.lower() == 'д':
     chars.extend(punctuation)
 if not_bool.lower() == 'д':
-     for i in chars:
-        if i in '1ilLo0O':
-           chars.remove(i)
+    chars = [i for i in chars if i not in '1ilLo0O']
     
+print(chars)
 print(*[generate_password(chars,lenght_password) for _ in range(count_passwords)], sep = '\n')
